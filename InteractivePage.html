@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Navigation Menu</title>
+<style>
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .navbar li {
+    display: inline;
+    margin: 0 20px;
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar.scrolled {
+    background-color: #555;
+  }
+  
+  .navbar.scrolled a {
+    color: #ccc;
+  }
+  
+  .navbar a:hover {
+    color: #ff0; 
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar" id="navbar">
+  <ul>
+    <li><a href="#home" onclick="changeBackgroundColor('purple')">Home</a></li>
+    <li><a href="#about" onclick="changeBackgroundColor('blue')">About</a></li>
+    <li><a href="#services" onclick="changeBackgroundColor('green')">Services</a></li>
+    <li><a href="#contact" onclick="changeBackgroundColor('Yellow')">Contact</a></li>
+  </ul>
+</div>
+
+<h1><br><br>The Android Store</h1>
+            <p>
+              Welcome to the all new exclusive Android Store. <br>
+              Here we will provide high Quality Android mobile devices.
+            </p>
+            <button>View All Products</button>
+
+<script>
+ 
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+
+  function changeBackgroundColor(color) {
+    document.body.style.backgroundColor = color;
+  }
+</script>
+
+</body>
+</html>
